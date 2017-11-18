@@ -1,0 +1,50 @@
+<html><head>
+
+  <script type="text/javascript" src="../../src/utils/index.js"></script>
+  <script type="text/javascript" src="../../src/lib/element.class.js"></script>
+  <script type="text/javascript" src="../../src/lib/circle.class.js"></script>
+  <script type="text/javascript" src="../../src/index.js"></script>
+  <script type="text/javascript" src="../../src/lib/jquery-3.2.1.min.js"></script>
+
+<style type="text/css">
+
+div{
+  border-style: solid;
+  border-color: green;
+  border-width: 30px;
+
+}
+
+</style>
+
+  <script language="javascript">
+
+
+    function genDivs(v){
+      var e = document.body; // whatever you want to append the rows to:
+      for(var i = 0; i < v; i++){
+        var row = document.createElement("div");
+        row.className = "row";
+        for(var x = 1; x <= v; x++){
+            var cell = document.createElement("div");
+            cell.className = "gridsquare";
+            //cell.innerText = (i * v) + x;
+            cell.style.borderColor = randomColor();
+            row.appendChild(cell);
+        }
+        e.appendChild(row);
+      }
+      document.getElementById("code").innerText = e.innerHTML;
+
+    }
+
+
+  </script>
+
+
+</head>
+<body>
+    <input type="button" onclick="genDivs(6)" value="click me">
+    <code id="code"></code>
+</body>
+</html>
